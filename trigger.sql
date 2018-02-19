@@ -1,0 +1,5 @@
+CREATE TRIGGER after_event
+AFTER INSERT
+ON events
+FOR EACH ROW
+    EXECUTE PROCEDURE notify();
