@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION NOTIFY() RETURNS trigger AS
 $BODY$
 BEGIN
-    PERFORM pg_notify(NEW.type, row_to_json(NEW)::text);
+    PERFORM pg_notify('NEW_EVENT', row_to_json(NEW)::text);
     RETURN NEW;
 END;
 $BODY$
